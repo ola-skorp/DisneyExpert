@@ -6,18 +6,17 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct FavoritesView: View {
-    @EnvironmentObject var viewModel: FavoritesViewModel
+    let store: StoreOf<FavoritesFeature>
     var body: some View {
         List{
-            ForEach(viewModel.list){ character in
+            ForEach(store.list){ character in
                 Text(character.name)
             }
+        }.onAppear {
+            store.send(.load)
         }
     }
-}
-
-#Preview {
-    FavoritesView()
 }

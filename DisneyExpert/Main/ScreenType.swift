@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+enum ScreenType: Int {
+    case Onboarding
+    case Main
+}

@@ -8,5 +8,6 @@
 import Foundation
 
 struct CharactersWithPageInfo{
-    var charac
+    var characters: [Character]
+    var totalPagesNumber: Int
 }

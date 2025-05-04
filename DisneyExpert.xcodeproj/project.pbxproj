@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		779DA70F2DBEA7A700B49FFD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 779DA70E2DBEA7A700B49FFD /* Alamofire */; };
+		77EF94672DC688C6000E5A17 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 77EF94662DC688C6000E5A17 /* ComposableArchitecture */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		776D1BE92DB53CEC00E8D524 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77EF94672DC688C6000E5A17 /* ComposableArchitecture in Frameworks */,
+				779DA70F2DBEA7A700B49FFD /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +119,8 @@
 			);
 			name = DisneyExpert;
 			packageProductDependencies = (
+				779DA70E2DBEA7A700B49FFD /* Alamofire */,
+				77EF94662DC688C6000E5A17 /* ComposableArchitecture */,
 			);
 			productName = DisneyExpert;
 			productReference = 776D1BD82DB53CEA00E8D524 /* DisneyExpert.app */;
@@ -195,6 +204,10 @@
 			);
 			mainGroup = 776D1BCF2DB53CEA00E8D524;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				779DA70D2DBEA7A700B49FFD /* XCRemoteSwiftPackageReference "Alamofire" */,
+				77EF94652DC688C6000E5A17 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 776D1BD92DB53CEA00E8D524 /* Products */;
 			projectDirPath = "";
@@ -552,6 +565,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		779DA70D2DBEA7A700B49FFD /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+		77EF94652DC688C6000E5A17 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.19.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		779DA70E2DBEA7A700B49FFD /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 779DA70D2DBEA7A700B49FFD /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		77EF94662DC688C6000E5A17 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77EF94652DC688C6000E5A17 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 776D1BD02DB53CEA00E8D524 /* Project object */;
 }

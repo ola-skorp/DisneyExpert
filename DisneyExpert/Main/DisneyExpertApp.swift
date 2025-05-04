@@ -5,20 +5,38 @@
 //  Created by Ольга on 20.04.25.
 //
 
+import ComposableArchitecture
 import SwiftUI
-import SwiftData
 
 @main
 struct DisneyExpertApp: App {
     var body: some Scene {
         WindowGroup {
-            @Environment(\.modelContext) var modelContext
-            ContentView()
+            let listStore = Store(
+                initialState: CharacterListFeature.State(
+                    list: [], isLoading: false, page: 1, totalPages: 1),
+                reducer: {
+                    CharacterListFeature(
+                        getPageUC: GetPageUC(
+                            webRepo: DisneyWebRepository(mapper: CharacterWebMapper()),
+                            dataRepo: DisneyDataRepository(database: Database())),
+                        dataRepository: DisneyDataRepository(database: Database()))
+                })
+            let favoritesStore = Store(
+                initialState: FavoritesFeature.State(list: []),
+                reducer: {
+                    FavoritesFeature(
+                        dataRepository: DisneyDataRepository(database: Database()))
+                })
+            let gameStore = Store(
+                initialState: GameFeature.State(),
+                reducer: {
+                    GameFeature(
+                        dataRepo: DisneyDataRepository(database: Database()))
+                })
+            let repoData = DisneyDataRepository(database: Database())
+            ContentView(listStore: listStore, favoritesStore: favoritesStore, gameStore: gameStore)
                 .environmentObject(AppViewModel())
-                .environmentObject(CharacterListViewModel(webRepository: DisneyWebRepository(mapper: CharacterWebMapper()), dataRepository: DisneyDataRepository(modelContext: modelContext, mapper: CharacterDBMapper())))
-                .environmentObject(FavoritesViewModel())
-                .environmentObject(GameViewModel())
         }
-        .modelContainer(for: CharacterDB.self)
     }
 }

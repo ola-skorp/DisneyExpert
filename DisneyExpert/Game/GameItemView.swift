@@ -14,8 +14,9 @@ struct GameItemView: View {
         let color = if checked { Color.blue } else { Color.gray}
         
         Text(name)
+            .lineLimit(1)
             .frame(maxWidth: .infinity)
-            .padding(.vertical, 10)
+            .padding(10)
             .background(color)
             .foregroundColor(Color.white)
     }

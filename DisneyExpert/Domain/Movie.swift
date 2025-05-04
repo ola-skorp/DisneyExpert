@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct Movie: Identifiable, Equatable{
+    var id: String
+    var name: String
+}

@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct InfoWeb: Decodable {
+    var totalPages: Int
+}

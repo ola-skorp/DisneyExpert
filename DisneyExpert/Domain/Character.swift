@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Character: Identifiable{
+struct Character: Equatable, Identifiable{
     var id: Int
     var name: String
     var movie: String

@@ -6,29 +6,19 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
-//https://api.disneyapi.dev/character
 struct ContentView: View {
     @EnvironmentObject var viewModel: AppViewModel
+    let listStore: StoreOf<CharacterListFeature>
+    let favoritesStore: StoreOf<FavoritesFeature>
+    let gameStore: StoreOf<GameFeature>
     var body: some View {
-        VStack {
-            TabView(selection: $viewModel.currentTab){
-                CharactersListView()
-                    .tabItem{ Label("Characters", systemImage: "person.fill") }
-                    .tag(TabType.list)
-                
-                FavoritesView()
-                    .tabItem{ Label("Favorites", systemImage: "star.fill") }
-                    .tag(TabType.favorites)
-
-                GameView()
-                    .tabItem{ Label("Game", systemImage: "gamecontroller.fill") }
-                    .tag(TabType.game)
-            }
-        }.padding()
+        VStack{
+            TabsView(listStore: listStore, favoritesStore: favoritesStore, gameStore: gameStore)
+        }
+        .fullScreenCover(isPresented: $viewModel.showOnboarding){
+            OnboardingView()
+        }
     }
-}
-
-#Preview {
-    ContentView()
 }

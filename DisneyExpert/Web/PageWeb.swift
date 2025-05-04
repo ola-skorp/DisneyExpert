@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct PageWeb: Decodable {
+    var info: InfoWeb
+    var data: [CharacterWeb]
+}

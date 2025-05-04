@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct CharacterWeb: Decodable {
+    var _id: Int
+    var name: String
+    var films: [String]
+    var shortFilms: [String]
+    var tvShows: [String]
+    var videoGames: [String]
+}

@@ -6,30 +6,29 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct GameView: View {
-    @EnvironmentObject var viewModel: GameViewModel
+    let store: StoreOf<GameFeature>
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     var body: some View {
         HStack{
             VStack{
-                ForEach(viewModel.characters){ character in
-                    GameItemView(name: character.name, checked: viewModel.checkedCharacters.contains(character.id) || viewModel.currentCharacter == character.id).onTapGesture {
-                        viewModel.onCharacterChecked(id: character.id)
+                ForEach(store.characters){ character in
+                    GameItemView(name: character.name, checked: store.checkedCharacters.contains(character.id) || store.currentCharacter?.id == character.id).onTapGesture {
+                        store.send(.characterClick(character))
                     }
                 }
             }
             VStack{
-                ForEach(viewModel.movies, id: \.self){ movie in
-                    GameItemView(name: movie, checked: viewModel.checkedMovies.contains(movie) || viewModel.currentMovie == movie).onTapGesture {
-                        viewModel.onMovieChecked(movie: movie)
+                ForEach(store.movies){ movie in
+                    GameItemView(name: movie.name, checked: store.checkedMovies.contains(movie) || store.currentMovie?.id == movie.id).onTapGesture {
+                        store.send(.movieClick(movie))
                     }
                 }
             }
+        }.onAppear {
+            store.send(.load)
         }
     }
-}
-
-#Preview {
-    GameView()
 }

@@ -6,29 +6,33 @@
 //
 
 import Foundation
-import SwiftData
+import SQLite3
 
 protocol IDisneyDataRepository {
     func saveCharacter(character: Character) async
     func removeCharacter(character: Character) async
+    func getAll() async -> [Character]
 }
 
 class DisneyDataRepository: IDisneyDataRepository {
-    let mapper: CharacterDBMapper
-    let modelContext: ModelContext
+    var db: Database
     
-    init(modelContext: ModelContext, mapper: CharacterDBMapper) {
-        self.modelContext = modelContext
-        self.mapper = mapper
+    init(database: Database){
+        self.db = database
+        self.db.openDatabase()
+        self.db.createCharacterTable()
     }
     
     func saveCharacter(character: Character) async {
-        let db = mapper.toDB(character: character)
-        modelContext.insert(db)
+        db.insertCharacter(id: character.id, name: character.name, movie: character.movie)
     }
     
     func removeCharacter(character: Character) async {
-        let db = mapper.toDB(character: character)
-        modelContext.delete(db)
+        db.deleteCharacter(id: character.id)
     }
+    
+    func getAll() async -> [Character] {
+        return db.getAllCharacters()
+    }
+
 }
