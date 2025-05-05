@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		779DA70F2DBEA7A700B49FFD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 779DA70E2DBEA7A700B49FFD /* Alamofire */; };
 		77EF94672DC688C6000E5A17 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 77EF94662DC688C6000E5A17 /* ComposableArchitecture */; };
-		77EF94982DC811B4000E5A17 /* WebModule in Frameworks */ = {isa = PBXBuildFile; productRef = 77EF94972DC811B4000E5A17 /* WebModule */; };
-		77EF949D2DC814D7000E5A17 /* DomainModule in Frameworks */ = {isa = PBXBuildFile; productRef = 77EF949C2DC814D7000E5A17 /* DomainModule */; };
 		77EF94DF2DC8237F000E5A17 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 77EF94DE2DC8237F000E5A17 /* Swinject */; };
+		77EF97A82DC839F8000E5A17 /* DomainModule in Frameworks */ = {isa = PBXBuildFile; productRef = 77EF97A72DC839F8000E5A17 /* DomainModule */; };
+		77EF97AA2DC83A17000E5A17 /* DatabaseModule in Frameworks */ = {isa = PBXBuildFile; productRef = 77EF97A92DC83A17000E5A17 /* DatabaseModule */; };
+		77EF97AC2DC83A1B000E5A17 /* WebModule in Frameworks */ = {isa = PBXBuildFile; productRef = 77EF97AB2DC83A1B000E5A17 /* WebModule */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		776D1BF22DB53CEC00E8D524 /* DisneyExpertUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DisneyExpertUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77EF94932DC81033000E5A17 /* WebModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = WebModule; path = DisneyExpert/WebModule; sourceTree = "<group>"; };
 		77EF949B2DC81479000E5A17 /* DomainModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DomainModule; path = DisneyExpert/DomainModule; sourceTree = "<group>"; };
+		77EF97592DC83809000E5A17 /* DatabaseModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DatabaseModule; path = DisneyExpert/DatabaseModule; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -62,10 +64,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77EF94982DC811B4000E5A17 /* WebModule in Frameworks */,
 				77EF94DF2DC8237F000E5A17 /* Swinject in Frameworks */,
 				77EF94672DC688C6000E5A17 /* ComposableArchitecture in Frameworks */,
-				77EF949D2DC814D7000E5A17 /* DomainModule in Frameworks */,
+				77EF97A82DC839F8000E5A17 /* DomainModule in Frameworks */,
+				77EF97AC2DC83A1B000E5A17 /* WebModule in Frameworks */,
+				77EF97AA2DC83A17000E5A17 /* DatabaseModule in Frameworks */,
 				779DA70F2DBEA7A700B49FFD /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,6 +93,7 @@
 		776D1BCF2DB53CEA00E8D524 = {
 			isa = PBXGroup;
 			children = (
+				77EF97592DC83809000E5A17 /* DatabaseModule */,
 				77EF949B2DC81479000E5A17 /* DomainModule */,
 				77EF94932DC81033000E5A17 /* WebModule */,
 				776D1BDA2DB53CEA00E8D524 /* DisneyExpert */,
@@ -139,9 +143,10 @@
 			packageProductDependencies = (
 				779DA70E2DBEA7A700B49FFD /* Alamofire */,
 				77EF94662DC688C6000E5A17 /* ComposableArchitecture */,
-				77EF94972DC811B4000E5A17 /* WebModule */,
-				77EF949C2DC814D7000E5A17 /* DomainModule */,
 				77EF94DE2DC8237F000E5A17 /* Swinject */,
+				77EF97A72DC839F8000E5A17 /* DomainModule */,
+				77EF97A92DC83A17000E5A17 /* DatabaseModule */,
+				77EF97AB2DC83A1B000E5A17 /* WebModule */,
 			);
 			productName = DisneyExpert;
 			productReference = 776D1BD82DB53CEA00E8D524 /* DisneyExpert.app */;
@@ -626,18 +631,22 @@
 			package = 77EF94652DC688C6000E5A17 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
 		};
-		77EF94972DC811B4000E5A17 /* WebModule */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = WebModule;
-		};
-		77EF949C2DC814D7000E5A17 /* DomainModule */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = DomainModule;
-		};
 		77EF94DE2DC8237F000E5A17 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 77EF94DD2DC8237F000E5A17 /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
+		};
+		77EF97A72DC839F8000E5A17 /* DomainModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DomainModule;
+		};
+		77EF97A92DC83A17000E5A17 /* DatabaseModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DatabaseModule;
+		};
+		77EF97AB2DC83A1B000E5A17 /* WebModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WebModule;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

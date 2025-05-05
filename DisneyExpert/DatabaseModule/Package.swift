@@ -4,18 +4,20 @@
 import PackageDescription
 
 let package = Package(
-    name: "Database",
+    name: "DatabaseModule",
+    platforms: [.iOS(.v13)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "Database",
-            targets: ["Database"]),
+            name: "DatabaseModule",
+            targets: ["DatabaseModule"]),
     ],
+    dependencies: [.package(path: "../DomainModule")],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "Database"),
+            name: "DatabaseModule"),
 
     ]
 )

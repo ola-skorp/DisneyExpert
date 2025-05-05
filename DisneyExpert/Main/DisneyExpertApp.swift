@@ -8,11 +8,14 @@
 import ComposableArchitecture
 import SwiftUI
 import WebModule
+import DatabaseModule
 
 @main
 struct DisneyExpertApp: App {
     @InjectedWeb
     private var webRepo: IDisneyWebRepository
+    @InjectedDatabase
+    private var dataRepo: IDisneyDataRepository
     
     var body: some Scene {
         WindowGroup {
@@ -23,22 +26,19 @@ struct DisneyExpertApp: App {
                     CharacterListFeature(
                         getPageUC: GetPageUC(
                             webRepo: webRepo,
-                            dataRepo: DisneyDataRepository(database: Database())),
-                        dataRepository: DisneyDataRepository(database: Database()))
+                            dataRepo: dataRepo),
+                        dataRepository: dataRepo)
                 })
             let favoritesStore = Store(
                 initialState: FavoritesFeature.State(list: []),
                 reducer: {
-                    FavoritesFeature(
-                        dataRepository: DisneyDataRepository(database: Database()))
+                    FavoritesFeature(dataRepository: dataRepo)
                 })
             let gameStore = Store(
                 initialState: GameFeature.State(),
                 reducer: {
-                    GameFeature(
-                        dataRepo: DisneyDataRepository(database: Database()))
+                    GameFeature(dataRepo: dataRepo)
                 })
-            let repoData = DisneyDataRepository(database: Database())
             ContentView(listStore: listStore, favoritesStore: favoritesStore, gameStore: gameStore)
                 .environmentObject(AppViewModel())
         }

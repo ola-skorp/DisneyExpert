@@ -8,6 +8,7 @@
 import Foundation
 import WebModule
 import DomainModule
+import DatabaseModule
 
 protocol IGetPageUC{
     func execute(page: Int) async -> CharactersWithPageInfo?

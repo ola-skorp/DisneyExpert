@@ -8,6 +8,7 @@
 import ComposableArchitecture
 import Foundation
 import DomainModule
+import DatabaseModule
 
 @Reducer
 struct CharacterListFeature {

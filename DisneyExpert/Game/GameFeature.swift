@@ -8,6 +8,7 @@
 import Foundation
 import ComposableArchitecture
 import DomainModule
+import DatabaseModule
 
 @Reducer
 struct GameFeature {
