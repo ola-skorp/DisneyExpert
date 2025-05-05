@@ -7,9 +7,13 @@
 
 import ComposableArchitecture
 import SwiftUI
+import WebModule
 
 @main
 struct DisneyExpertApp: App {
+    @InjectedWeb
+    private var webRepo: IDisneyWebRepository
+    
     var body: some Scene {
         WindowGroup {
             let listStore = Store(
@@ -18,7 +22,7 @@ struct DisneyExpertApp: App {
                 reducer: {
                     CharacterListFeature(
                         getPageUC: GetPageUC(
-                            webRepo: DisneyWebRepository(mapper: CharacterWebMapper()),
+                            webRepo: webRepo,
                             dataRepo: DisneyDataRepository(database: Database())),
                         dataRepository: DisneyDataRepository(database: Database()))
                 })

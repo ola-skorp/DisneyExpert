@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import WebModule
+import DomainModule
 
 protocol IGetPageUC{
     func execute(page: Int) async -> CharactersWithPageInfo?

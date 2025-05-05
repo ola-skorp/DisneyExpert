@@ -7,18 +7,19 @@
 
 import Foundation
 import SQLite3
+import DomainModule
 
-protocol IDisneyDataRepository {
+public protocol IDisneyDataRepository {
     func saveCharacter(character: Character) async
     func removeCharacter(character: Character) async
     func getAll() async -> [Character]
 }
 
 class DisneyDataRepository: IDisneyDataRepository {
-    var db: Database
+    @Injected
+    private var db: Database
     
-    init(database: Database){
-        self.db = database
+    init(){
         self.db.openDatabase()
         self.db.createCharacterTable()
     }

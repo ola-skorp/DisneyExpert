@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		779DA70F2DBEA7A700B49FFD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 779DA70E2DBEA7A700B49FFD /* Alamofire */; };
 		77EF94672DC688C6000E5A17 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 77EF94662DC688C6000E5A17 /* ComposableArchitecture */; };
+		77EF94982DC811B4000E5A17 /* WebModule in Frameworks */ = {isa = PBXBuildFile; productRef = 77EF94972DC811B4000E5A17 /* WebModule */; };
+		77EF949D2DC814D7000E5A17 /* DomainModule in Frameworks */ = {isa = PBXBuildFile; productRef = 77EF949C2DC814D7000E5A17 /* DomainModule */; };
+		77EF94DF2DC8237F000E5A17 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 77EF94DE2DC8237F000E5A17 /* Swinject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +35,8 @@
 		776D1BD82DB53CEA00E8D524 /* DisneyExpert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DisneyExpert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		776D1BE82DB53CEC00E8D524 /* DisneyExpertTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DisneyExpertTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		776D1BF22DB53CEC00E8D524 /* DisneyExpertUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DisneyExpertUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		77EF94932DC81033000E5A17 /* WebModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = WebModule; path = DisneyExpert/WebModule; sourceTree = "<group>"; };
+		77EF949B2DC81479000E5A17 /* DomainModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DomainModule; path = DisneyExpert/DomainModule; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -57,7 +62,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77EF94982DC811B4000E5A17 /* WebModule in Frameworks */,
+				77EF94DF2DC8237F000E5A17 /* Swinject in Frameworks */,
 				77EF94672DC688C6000E5A17 /* ComposableArchitecture in Frameworks */,
+				77EF949D2DC814D7000E5A17 /* DomainModule in Frameworks */,
 				779DA70F2DBEA7A700B49FFD /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,9 +90,12 @@
 		776D1BCF2DB53CEA00E8D524 = {
 			isa = PBXGroup;
 			children = (
+				77EF949B2DC81479000E5A17 /* DomainModule */,
+				77EF94932DC81033000E5A17 /* WebModule */,
 				776D1BDA2DB53CEA00E8D524 /* DisneyExpert */,
 				776D1BEB2DB53CEC00E8D524 /* DisneyExpertTests */,
 				776D1BF52DB53CEC00E8D524 /* DisneyExpertUITests */,
+				77EF94962DC811B4000E5A17 /* Frameworks */,
 				776D1BD92DB53CEA00E8D524 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -97,6 +108,13 @@
 				776D1BF22DB53CEC00E8D524 /* DisneyExpertUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		77EF94962DC811B4000E5A17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,6 +139,9 @@
 			packageProductDependencies = (
 				779DA70E2DBEA7A700B49FFD /* Alamofire */,
 				77EF94662DC688C6000E5A17 /* ComposableArchitecture */,
+				77EF94972DC811B4000E5A17 /* WebModule */,
+				77EF949C2DC814D7000E5A17 /* DomainModule */,
+				77EF94DE2DC8237F000E5A17 /* Swinject */,
 			);
 			productName = DisneyExpert;
 			productReference = 776D1BD82DB53CEA00E8D524 /* DisneyExpert.app */;
@@ -207,6 +228,7 @@
 			packageReferences = (
 				779DA70D2DBEA7A700B49FFD /* XCRemoteSwiftPackageReference "Alamofire" */,
 				77EF94652DC688C6000E5A17 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				77EF94DD2DC8237F000E5A17 /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 776D1BD92DB53CEA00E8D524 /* Products */;
@@ -583,6 +605,14 @@
 				minimumVersion = 1.19.1;
 			};
 		};
+		77EF94DD2DC8237F000E5A17 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -595,6 +625,19 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 77EF94652DC688C6000E5A17 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		77EF94972DC811B4000E5A17 /* WebModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WebModule;
+		};
+		77EF949C2DC814D7000E5A17 /* DomainModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DomainModule;
+		};
+		77EF94DE2DC8237F000E5A17 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77EF94DD2DC8237F000E5A17 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

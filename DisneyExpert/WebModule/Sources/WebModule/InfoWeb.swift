@@ -7,6 +7,10 @@
 
 import Foundation
 
-struct InfoWeb: Decodable {
+struct InfoWeb: Decodable, Sendable {
     var totalPages: Int
+
+    init(totalPages: Int) {
+        self.totalPages = totalPages
+    }
 }

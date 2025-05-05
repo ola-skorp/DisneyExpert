@@ -7,6 +7,7 @@
 
 import Foundation
 import SQLite3
+import DomainModule
 
 class Database{
     var db: OpaquePointer? = nil
@@ -99,7 +100,7 @@ class Database{
                 let name = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
                 let movie = String(describing: String(cString: sqlite3_column_text(queryStatement, 2)))
                     
-                users.append(Character(id: Int(id), name: name, movie: movie))
+                users.append(Character(id: Int(id), name: name, movie: movie, isFavorite: false))
                 print("Character Details:")
                 print("\(id) | \(name) | \(movie)")
             }

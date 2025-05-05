@@ -7,17 +7,17 @@
 
 import Foundation
 import Alamofire
+import DomainModule
 
-protocol IDisneyWebRepository{
+public protocol IDisneyWebRepository{
     func getCharacters(page: Int) async -> CharactersWithPageInfo?
 }
 
 class DisneyWebRepository: IDisneyWebRepository {
-    init(mapper: CharacterWebMapper) {
-        self.mapper = mapper
-    }
-    let mapper: CharacterWebMapper
-    func getCharacters(page: Int) async -> CharactersWithPageInfo? {
+    @Injected
+    private var mapper: CharacterWebMapper
+    
+    public func getCharacters(page: Int) async -> CharactersWithPageInfo? {
         let response = await AF.request("https://api.disneyapi.dev/character?page=\(page)", interceptor: .retryPolicy)
                                // Caching customization.
                                .cacheResponse(using: .cache)
