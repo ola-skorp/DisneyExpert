@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct InfoWeb: Decodable, Sendable {
+struct InfoWeb: Codable, Sendable {
     var totalPages: Int
 
     init(totalPages: Int) {

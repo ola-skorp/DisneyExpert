@@ -18,9 +18,13 @@ class DisneyWebRepository: IDisneyWebRepository {
     private var mapper: CharacterWebMapper
     
     public func getCharacters(page: Int) async -> CharactersWithPageInfo? {
-        let response = await AF.request("https://api.disneyapi.dev/character?page=\(page)", interceptor: .retryPolicy)
-                               // Caching customization.
-                               .cacheResponse(using: .cache)
+        let urlCache = URLCache(memoryCapacity: 20 * 1024 * 1024, diskCapacity: 200 * 1024 * 1024, diskPath: "cache")
+        URLCache.shared = urlCache
+        let configuration = URLSessionConfiguration.default
+        configuration.urlCache = URLCache.shared
+        configuration.requestCachePolicy = .returnCacheDataElseLoad
+        let session = Session(configuration: configuration)
+        let response = await session.request("https://api.disneyapi.dev/character?page=\(page)", interceptor: .retryPolicy)
                                // Redirect customization.
                                .redirect(using: .follow)
                                // Validate response code and Content-Type.

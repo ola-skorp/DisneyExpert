@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PageWeb: Decodable, Sendable {
+struct PageWeb: Codable, Sendable {
     var info: InfoWeb
     var data: [CharacterWeb]
     

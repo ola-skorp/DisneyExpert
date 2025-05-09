@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CharacterWeb: Decodable, Sendable {
+struct CharacterWeb: Codable, Sendable {
     var _id: Int
     var name: String
     var films: [String]
